@@ -58,6 +58,10 @@ def validate_and_save_csvs(bucket):
                 df = df[all_columns]
                 all_dfs.append(df)
 
+            except pd.errors.EmptyDataError:
+                logging.error(f"❌ Empty file: {file_key}")
+            except pd.errors.ParserError as e:
+                logging.error(f"❌ Error parsing CSV: {e}")
             except Exception as e:
                 logging.error(f"❌ Error processing {file_key}: {e}")
 
