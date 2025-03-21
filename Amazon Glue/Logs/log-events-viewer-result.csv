@@ -1,0 +1,148 @@
+timestamp,message
+1742472890833,"
+🔍 Users Schema:
+"
+1742472890851,"root
+ |-- user_id: integer (nullable = true)
+ |-- user_name: string (nullable = true)
+ |-- user_age: integer (nullable = true)
+ |-- user_country: string (nullable = true)
+ |-- created_at: date (nullable = true)
+
+"
+1742472895546,"Users Row Count: 50000
+
+🔍 Songs Schema:
+"
+1742472895547,"root
+ |-- track_id: string (nullable = true)
+ |-- id: integer (nullable = true)
+ |-- artists: string (nullable = true)
+ |-- album_name: string (nullable = true)
+ |-- track_name: string (nullable = true)
+ |-- popularity: string (nullable = true)
+ |-- duration_ms: string (nullable = true)
+ |-- explicit: string (nullable = true)
+ |-- danceability: string (nullable = true)
+ |-- energy: string (nullable = true)
+ |-- key: string (nullable = true)
+ |-- loudness: string (nullable = true)
+ |-- mode: string (nullable = true)
+ |-- speechiness: string (nullable = true)
+ |-- acousticness: string (nullable = true)
+ |-- instrumentalness: double (nullable = true)
+ |-- liveness: string (nullable = true)
+ |-- valence: string (nullable = true)
+ |-- tempo: double (nullable = true)
+ |-- time_signature: double (nullable = true)
+ |-- track_genre: string (nullable = true)
+
+"
+1742472899522,"Songs Row Count: 89741
+
+🔍 Streams Schema:
+"
+1742472899523,"root
+ |-- user_id: integer (nullable = true)
+ |-- track_id: string (nullable = true)
+ |-- listen_time: timestamp (nullable = true)
+
+"
+1742472900261,"Streams Row Count: 34038
+"
+1742472900418,"
+🔍 Streams + Songs Schema:
+"
+1742472900419,"root
+ |-- user_id: integer (nullable = true)
+ |-- track_id: string (nullable = true)
+ |-- genre: string (nullable = true)
+ |-- date: date (nullable = true)
+ |-- duration_ms: string (nullable = true)
+
+"
+1742472903535,"Streams + Songs Row Count: 34038
+"
+1742472903605,"
+🔍 Genre KPIs Schema:
+"
+1742472903605,"root
+ |-- date: date (nullable = true)
+ |-- genre: string (nullable = true)
+ |-- listen_count: long (nullable = false)
+ |-- unique_listeners: long (nullable = false)
+ |-- total_listening_time: double (nullable = true)
+ |-- avg_listening_time_per_user: double (nullable = true)
+
+"
+1742472907328,"Genre KPIs Row Count: 114
+"
+1742472907432,"
+🔍 Top 3 Songs per Genre Schema:
+"
+1742472907433,"root
+ |-- date: date (nullable = true)
+ |-- genre: string (nullable = true)
+ |-- track_id: string (nullable = true)
+ |-- listen_count: long (nullable = false)
+ |-- rank: integer (nullable = false)
+
+"
+1742472911673,"Top 3 Songs per Genre Row Count: 342
+"
+1742472911747,"
+🔍 Top 5 Genres per Day Schema:
+"
+1742472911748,"root
+ |-- date: date (nullable = true)
+ |-- genre: string (nullable = true)
+ |-- listen_count: long (nullable = false)
+ |-- unique_listeners: long (nullable = false)
+ |-- total_listening_time: double (nullable = true)
+ |-- avg_listening_time_per_user: double (nullable = true)
+ |-- rank: integer (nullable = false)
+
+"
+1742472914456,"Top 5 Genres per Day Row Count: 5
+"
+1742472921620,"Genre KPIs DynamicFrame Schema:
+"
+1742472921639,"root
+|-- date: date
+|-- genre: string
+|-- listen_count: long
+|-- unique_listeners: long
+|-- total_listening_time: double
+|-- avg_listening_time_per_user: double
+
+Genre KPIS: <awsglue.dynamicframe.DynamicFrame object at 0x7fc2a8ebff90>
+Top Songs DynamicFrame Schema:
+"
+1742472921639,"root
+|-- date: date
+|-- genre: string
+|-- track_id: string
+|-- listen_count: long
+|-- rank: int
+
+Top Genres DynamicFrame Schema:
+"
+1742472921640,"root
+|-- date: date
+|-- genre: string
+|-- listen_count: long
+|-- unique_listeners: long
+|-- total_listening_time: double
+|-- avg_listening_time_per_user: double
+|-- rank: int
+
+"
+1742472927104,"📌 Checking Row Counts Before Writing to DynamoDB
+"
+1742472928601,"Genre KPIs row count: 114
+"
+1742472930238,"Top Songs row count: 342
+"
+1742472931459,"Top Genres row count: 5
+✅ Data successfully loaded into DynamoDB!
+"
